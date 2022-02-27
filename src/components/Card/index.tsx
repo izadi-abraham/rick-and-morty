@@ -11,7 +11,7 @@ const Card = (props: IProfileProps) => {
     const { character } = props
     const badgeBgColor = character.status === 'Alive' ? 'bg-success' : character.status === 'Dead' ? 'bg-danger' : 'bg-secondary'
     return (
-        <div className={'col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative'}>
+        <div className={'position-relative'}>
             <div
                 className={'character-card d-flex flex-column justify-content-center text-dark'}
             >

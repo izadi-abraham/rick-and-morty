@@ -1,0 +1,14 @@
+
+
+.rick-navbar {
+  background-color: lightgray;
+  height: 80px;
+  display: flex;
+  align-items: center;
+
+  &__link {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
