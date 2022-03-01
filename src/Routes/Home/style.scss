@@ -1,0 +1,12 @@
+
+
+.ram-home-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__end-of-page, &__error {
+    font-size: 32px;
+    font-weight: bold;
+  }
+}

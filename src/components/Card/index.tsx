@@ -1,37 +1,49 @@
-import {h} from "preact";
+import {FunctionComponent, h} from "preact";
+import {useState} from "preact/hooks";
+import CardSkeleton from "src/components/Card/skeleton";
 import './style.scss'
 
-export interface IProfileProps {
-    character: any
+
+
+
+/**
+ * @interface ICardProps
+ * @component Card
+ */
+interface ICardProps {
+    character?: any,
+    fallback?: boolean
 
 }
 
+/**
+ * @component Card
+ * @description Renders a specific character's card
+ * @param props: ICardProps
+ */
+const Card = (props: ICardProps) => {
+    const {character, fallback = false} = props
+    const [imageLoaded, setImageLoaded] = useState<boolean>(false)
+    const badgeBgColor = character?.status === 'Alive' ? 'bg-success' : character?.status === 'Dead' ? 'bg-danger' : 'bg-secondary'
 
-const Card = (props: IProfileProps) => {
-    const { character } = props
-    const badgeBgColor = character.status === 'Alive' ? 'bg-success' : character.status === 'Dead' ? 'bg-danger' : 'bg-secondary'
-    return (
-        <div className={'position-relative'}>
-            <div
-                className={'character-card d-flex flex-column justify-content-center text-dark'}
-            >
-                <img className={'character-card-image '} src={character.image} alt="character-image"/>
-                <div className={'character-card-content'}>
-                    <div className="fs-5 fw-bold">{character.name}</div>
-                   <div className={'mb-3'}>
-                       <span className="fs-6 ">{character.species}</span>
-                       {' - '}
-                       <span className="fs-6 ">{character.gender}</span>
-                   </div>
-                    <div className="">
-                        <div className="fs-6 fw-normal">Last Location</div>
-                        <div className="fs-5">{character.location.name}</div>
-                    </div>
+    if (fallback) return <CardSkeleton/>
+
+    return <>
+        <div className={'ram-card'} style={{display: imageLoaded ? 'block' : 'none'}}>
+            <div className={'ram-card__body'}>
+                <img className={'ram-card__image'} src={character.image} onLoad={() => setImageLoaded(true)}
+                     alt="card-image"/>
+                <div className={'ram-card__content'}>
+                    <div className="ram-card__title ram-card-name">{character.name}</div>
+                    <div className="ram-card__text ram-card-splitter">{character.gender}</div>
+                    <div className="ram-card__text">Last Location</div>
+                    <div className="ram-card__title">{character.location.name}</div>
                 </div>
             </div>
-            <div className={`character-card-badge position-absolute badge ${badgeBgColor}`}>{character.status}</div>
+            <div className={`ram-card__badge badge ${badgeBgColor}`}>{character.status}</div>
         </div>
-    )
+        {!imageLoaded && <CardSkeleton/>}
+    </>
 }
 
 export default Card

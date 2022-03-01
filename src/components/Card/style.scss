@@ -1,17 +1,78 @@
 
-
 $radius: 10px;
-.character-card {
+
+.ram-card {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 280px;
+  margin: 8px;
   border: 2px solid #0b5ed7;
   border-radius: $radius;
+  color: #444444;
+  position: relative;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__image {
+    border-radius: $radius $radius 0 0;
+  }
+
+  &__content {
+    padding: 10px;
+  }
+
+  &__title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 24px;
+  }
+
+  &__text {
+    font-size: 16px;
+  }
+
+  &__badge {
+    top: 10px; right: 20px;
+    font-size: 17px !important;
+    position: absolute;
+  }
 }
-.character-card-content {
-  padding: 10px;
+
+.ram-card-name {
+  font-weight: bold;
 }
-.character-card-image {
-  border-radius: $radius $radius 0 0;
+
+.ram-card-splitter {
+  margin-bottom: 8px;
 }
-.character-card-badge {
-  top: 10px; right: 20px;
-  font-size: 17px !important;
+
+
+
+.ram-card-skeleton {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 280px;
+  margin: 8px;
+  border-radius: $radius;
+  &__img {
+    width: 276px;
+    height: 276px;
+  }
+  &__title {
+    width: 256px;
+    height: 36px;
+  }
+  &__text {
+    width: 64px;
+    height: 24px;
+  }
+  &__short-text {
+    width: 128px;
+    margin-bottom: 8px;
+  }
 }
