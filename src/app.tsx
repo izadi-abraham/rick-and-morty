@@ -1,7 +1,7 @@
 import {h} from "preact";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Home from 'src/Routes/Home'
-import Profile from 'src/Routes/Profile'
+import Home from 'src/routes/Home'
+import Profile from 'src/routes/Profile'
 import Navbar from "src/components/Navbar";
 import {QueryClient, QueryClientProvider} from 'react-query'
 import {ReactQueryDevtools} from 'react-query/devtools'

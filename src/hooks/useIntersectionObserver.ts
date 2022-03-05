@@ -6,7 +6,7 @@ import {useEffect} from "preact/hooks";
 /**
  * @function useIntersectionObserver
  * @param {}
- * @description sets an intersection observer on the input element and calls the onIntersect callback when the element intersects with the observer's root. The observer's will be removed with unmount
+ * @description sets an intersection observer on the received target element and calls the onIntersect callback when the element intersects with the observer's root. The observer's will be removed with unmount
  */
 const useIntersectionObserver = ({
                                      target,
