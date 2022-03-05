@@ -1,0 +1,62 @@
+
+.ram-profile-page {
+  margin-top: 64px;
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__badge {
+    width: 200px;
+    margin-bottom: 32px;
+  }
+
+  &-no-data {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-header {
+    display: flex;
+
+    &-image {
+      max-width: 280px;
+    }
+
+    &-info {
+      margin-left: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-location {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__title {
+        margin-top: 8px;
+        margin-bottom: 16px;
+
+      }
+
+      &__heading {
+        margin-top: 8px;
+        margin-bottom: 32px;
+      }
+    }
+
+  }
+
+  &-episodes {
+    margin-top: 64px;
+
+    &__names {
+      text-align: justify;
+      line-height: 32px;
+    }
+  }
+
+}
+

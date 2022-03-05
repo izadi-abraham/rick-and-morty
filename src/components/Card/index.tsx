@@ -21,7 +21,7 @@ interface ICardProps {
  * @description Renders a specific character's card
  * @param props: ICardProps
  */
-const Card = (props: ICardProps) => {
+const Card: FunctionComponent<ICardProps> = (props: ICardProps) => {
     const {character, fallback = false} = props
     const [imageLoaded, setImageLoaded] = useState<boolean>(false)
     const badgeBgColor = character?.status === 'Alive' ? 'bg-success' : character?.status === 'Dead' ? 'bg-danger' : 'bg-secondary'
@@ -31,8 +31,11 @@ const Card = (props: ICardProps) => {
     return <>
         <div className={'ram-card'} style={{display: imageLoaded ? 'block' : 'none'}}>
             <div className={'ram-card__body'}>
-                <img className={'ram-card__image'} src={character.image} onLoad={() => setImageLoaded(true)}
-                     alt="card-image"/>
+                <img
+                    className={'ram-card__image'}
+                    src={character.image}
+                    onLoad={() => setImageLoaded(true)}
+                    alt="card-image"/>
                 <div className={'ram-card__content'}>
                     <div className="ram-card__title ram-card-name">{character.name}</div>
                     <div className="ram-card__text ram-card-splitter">{character.gender}</div>

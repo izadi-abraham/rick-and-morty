@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef} from "preact/hooks";
+import {useRef} from "preact/hooks";
 import {axiosInstance} from "src/api";
 import Card from "src/components/Card";
 import {h} from "preact";
@@ -12,8 +12,7 @@ const Home = () => {
     const {
         data,
         isError,
-        isFetching,
-        isFetchingNextPage,
+        isLoading,
         fetchNextPage,
         hasNextPage,
     } = useInfiniteQuery(
@@ -40,8 +39,8 @@ const Home = () => {
     return (
         <div className={'ram-home-page container'}>
             <>
-                {isFetching || isFetchingNextPage &&
-                <Card fallback={true}/>
+                {isLoading &&
+                Array(20).fill(null).map(() => <Card fallback={true}/>)
                 }
                 {data && data.pages.map((page) =>
                     page.results.map((character) =>
@@ -55,7 +54,7 @@ const Home = () => {
                         </Link>
                     ))
                 }
-                {!isFetching && !isError && !hasNextPage &&
+                {!isLoading && !isError && !hasNextPage &&
                     <div className={"ram-home-page__end-of-page"}>
                     Nothing more to load
                     </div>
